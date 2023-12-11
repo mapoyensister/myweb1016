@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chinese-Hakka Dictionary</title>
+</head>
+<body>
+    <h1>關於西高地白梗</h1>
+    <h2>您可輸入:</h2>
+    <h3>西高地白梗是什麼犬種......</h3>
+    <input type="text" id="query" placeholder="Enter Chinese word">
+    <button onclick="search()">Search</button>
+    <p id="result"></p>
+
+    <script>
+        function search() {
+            var query = document.getElementById('query').value;
+            var url = 'https://script.google.com/macros/s/AKfycbxbdLtHWNw23q_r52vjjgLcxyQn5rfCXlNGQ6dBpax8OG4Du3mBA7vTmUGRUiYQaCBy/exec?q=' + encodeURIComponent(query);
+
+            fetch(url)
+                .then(response => response.text())
+                .then(text => document.getElementById('result').innerText = text)
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+</html>
+
